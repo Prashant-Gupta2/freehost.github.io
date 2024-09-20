@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Form Input in javascript</title>
+          <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+          <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+          <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+          <script type="text/javascript">
+           function stockdetails()
+           {
+            document.getElementById("stk-id").innerText=document.getElementById("pro-id").value;
+            document.getElementById("stk-name").innerText=document.getElementById("pro-name").value;      
+            document.getElementById("stk-price").innerText=document.getElementById("pro-price").value;      
+            document.getElementById("stk-password").innerText=document.getElementById("pro-password").value;
+            document.getElementById("stk-city").innerText=document.getElementById("pro-city").value;
+            var x = document.getElementById("check");
+           var stock="";  
+            if(x.checked)
+            {
+             stock ="Available";
+            }
+            else
+            {
+             stock = "Not Available";
+            } 
+            document.getElementById("stk-stock").innerHTML=stock;      
+           }
+          </script>
+</head>
+<body class="container-fluied d-flex justify-content-center">
+     <div class="w-25 p-4 mt-4 border border-1 border-dark p-3">
+        <h3 class="text-center fw-bold text-primary">Register Product</h3> 
+        <dl>
+          <dt>Product Id:</dt>
+          <dd><input type="number" class="form-control" id="pro-id"></dd>
+          <dt>Name:</dt>
+          <dd><input type="text" class="form-control" id="pro-name"></dd>
+          <dt>Price:</dt>
+          <dd><input type="number" class="form-control" id="pro-price"></dd>
+          <dt>Password:</dt>
+          <dd><input type="password" class="form-control" id="pro-password"></dd>
+          <dt>City:</dt>
+           <dd>
+             <select class="form-select" id="pro-city">
+              <option>Selct city</option>
+              <option>Hydrabad</option>
+              <option>Delhi</option>
+              <option>Patna</option>
+              <option>Gaya</option>
+             </select>
+           </dd>
+          <dt>Stock:</dt>
+          <dd class="form-switch"><input type="checkbox" id="check" class="form-check-input"> <label for="check">Available</label></dd> 
+        </dl>
+        <button onclick="stockdetails()" data-bs-toggle="modal" data-bs-target="#stock_modal" class="btn btn-warning w-100 fw-bold">Submit</button>
+    </div>
+     <div class="modal fade" id="stock_modal">
+       <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+           <div class="modal-header">
+            <h3 class="text-center text-danger"> Stock Summary:-</h3>
+            <button class="btn btn-close" data-bs-dismiss="modal"></button>
+           </div>
+           <div class="modal-body">
+             <dl class="row">
+               <dt class="col-3">Stock Id:</dt>
+               <dd id="stk-id" class="col-9"></dd>
+               <dt class="col-3">Name:</dt>
+               <dd id="stk-name" class="col-9"></dd>
+               <dt class="col-3">Price:</dt>
+               <dd id="stk-price" class="col-9"></dd>
+               <dt class="col-3">Password:</dt>
+               <dd id="stk-password" class="col-9"></dd>
+               <dt class="col-3">Stock Id:</dt>
+               <dd id="stk-city" class="col-9"></dd>
+               <dt class="col-3">Stock:</dt>
+               <dd class="col-9" id="stk-stock"></dd>
+             </dl>
+           </div>
+           <div class="modal-footer">
+             <button class="btn btn-success text-right fw-bold mt-3" data-bs-dismiss="modal">Ok</button>
+           </div>
+         </div>
+       </div>
+     </div>
+</body>
+</html>
